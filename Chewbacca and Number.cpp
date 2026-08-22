@@ -1,24 +1,41 @@
 #include <iostream>
+
 using namespace std;
 
 int main()
+
 {
-    int N;
-    cin >> N;
-    int x;
+
+    string x;
+
     cin >> x;
-    int last_dig;
-    for (int i = 1; i <= N; i++)
+
+    for (int i = 0; i < x.length(); i++)
+
     {
-        last_dig = x % 10;
-        int check = 9 - last_dig;
-        if (check < last_dig)
+
+        int digit = x[i] - '0';
+
+        int check = 9 - digit;
+
+        if (i == 0 && check == 0)
+
         {
-            cout << check;
+
+            cout << digit;
+
         }
+
         else
+
         {
-            cout << last_dig;
+
+            cout << min(digit, check);
+
         }
+
     }
+
+    return 0;
+
 }
