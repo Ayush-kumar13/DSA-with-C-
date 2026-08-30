@@ -1,35 +1,49 @@
 #include <iostream>
 using namespace std;
 
-int main() 
+int main()
 {
     int t;
     cin >> t;
-    while (t--){
-        int N,M;
-        cin >> N >> M;
-        int aayush =0;
-        int harshit=0;
-        int smartphone=1;
-        bool aayushTurn=true;
-        while(true){
-            if(aayushTurn){
-                if(aayush+smartphone > M){
-                    cout<< "harshit"<<endl;
+
+    while (t--)
+    {
+        int M, N;
+        cin >> M >> N;
+
+        int aayush = 0;
+        int harshit = 0;
+        int smartphone = 1;
+
+        bool aayushTurn = true;
+
+        while (true)
+        {
+            if (aayushTurn)
+            {
+                if (aayush + smartphone > M)
+                {
+                    cout << "Harshit" << endl;
                     break;
                 }
-                aayush+=smartphone;
 
+                aayush += smartphone;
             }
             else
-            if(harshit+smartphone > N){
-                cout<<"aayush"<<endl;
-                break;
+            {
+                if (harshit + smartphone > N)
+                {
+                    cout << "Aayush" << endl;
+                    break;
+                }
+
+                harshit += smartphone;
             }
-            harshit+=smartphone;
-            
-        }smartphone++;
-            aayushTurn=!aayushTurn;        
+
+            smartphone++;
+            aayushTurn = !aayushTurn;
+        }
     }
 
+    return 0;
 }
