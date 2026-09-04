@@ -21,12 +21,12 @@ int main(){
             int sum=a[i]+a[left]+a[right];
             if(sum == target){
                 cout<< a[i]<<", "<<a[left]<<"and"<<a[right]<<endl;
-                  int x=left;
-            int y=right;
-            while(left<right){
+                  int x=a[left];
+                 int y=a[right];
+            while(left<right && a[left]==x){
                 left++;
             }
-            while(left<right){
+            while(left<right && a[right]==y){
                 right--;
             }
             }
