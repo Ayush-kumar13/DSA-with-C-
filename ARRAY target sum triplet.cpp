@@ -1,53 +1,44 @@
-#include <bits/stdc++.h>
+# include<bits/stdc++.h>
 using namespace std;
-
-int main() {
+int main(){
     int n;
     cin >> n;
-
-    vector<int> a(n);
-
-    for (int i = 0; i < n; i++) {
+    vector<int>a(n);
+    for ( int i=0; i<n ; i++){
         cin >> a[i];
     }
+    int target;
+    cin>> target;
+    sort(a.begin(),a.end());
 
-    int t;
-    cin >> t;
-
-    sort(a.begin(), a.end());
-
-    for (int i = 0; i < n - 2; i++) {
-
-        if (i > 0 && a[i] == a[i - 1])
+    for (int i=0;i<n;i++){
+        if(a[i]==a[i-1]){
             continue;
-
-        int j = i + 1;
-        int k = n - 1;
-
-        while (j < k) {
-
-            int sum = a[i] + a[j] + a[k];
-
-            if (sum == t) {
-                cout << a[i] << ", " << a[j] << " and " << a[k] << endl;
-
-                int x = a[j];
-                int y = a[k];
-
-                while (j < k && a[j] == x)
-                    j++;
-
-                while (j < k && a[k] == y)
-                    k--;
-            }
-            else if (sum < t) {
-                j++;
-            }
-            else {
-                k--;
-            }
         }
-    }
+        int left=i+1;
+        int right=n-1;
+        while(left < right ){
+            int sum=a[i]+a[left]+a[right];
+            if(sum == target){
+                cout<< a[i]<<", "<<a[left]<<"and"<<a[right]<<endl;
+                  int x=left;
+            int y=right;
+            while(left<right){
+                left++;
+            }
+            while(left<right){
+                right--;
+            }
+            }
+          
+            else if (sum<target){
+                    left++;          
+            }
+            else{
+                right--;
+            }
 
-    return 0;
+        }
+
+    }
 }
